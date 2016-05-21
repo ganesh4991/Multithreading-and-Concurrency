@@ -14,5 +14,10 @@ public class Main {
 		SyncThread t2=new SyncThread(c,latch);
 		SyncThread t3=new SyncThread(c,latch);
 		
+		t1.start();
+		t2.start();
+		t3.start();
+		
+		latch.countDown();
 	}
 }
