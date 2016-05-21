@@ -19,8 +19,8 @@ public class Main {
 		
 		latch.countDown();
 		
-		System.out.println("Thead 1 List: "+t1.list);
-		System.out.println("Thead 2 List: "+t2.list);
-		System.out.println("Thead 3 List: "+t3.list);
+		System.out.println("Thead 1 List: "+t1.list+t1.list.size());
+		System.out.println("Thead 2 List: "+t2.list+t2.list.size());
+		System.out.println("Thead 3 List: "+t3.list+t3.list.size());
 	}
 }
