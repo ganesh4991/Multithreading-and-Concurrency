@@ -7,7 +7,6 @@ import java.util.concurrent.CountDownLatch;
 public class SyncThread extends Thread {
 
 	static int globalVariable = 0;
-	private final Object lock = new Object();
 
 	List<Integer> list;
 	CountDownLatch time;
@@ -29,15 +28,14 @@ public class SyncThread extends Thread {
 				increment();
 			else
 				return;
+			
 		}
 	}
 
 	public synchronized void increment() {
-		synchronized (lock) {
 			globalVariable += 1;
 			System.out.println(globalVariable);
-			list.add(globalVariable);	
-		}
+			list.add(globalVariable);			
 	}
 
 }
