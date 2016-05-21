@@ -19,12 +19,19 @@ public class Main {
 
 		latch.countDown();
 
+		try {
+			t1.join();
+			t2.join();
+			t3.join();
 
-		if (!t1.isAlive() && !t2.isAlive() && !t3.isAlive()) {
-			System.out.println("Thead 1 List: " + t1.list + t1.list.size());
-			System.out.println("Thead 2 List: " + t2.list + t2.list.size());
-			System.out.println("Thead 3 List: " + t3.list + t3.list.size());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+		System.out.println("Thead 1 List: " + t1.list);
+		System.out.println("Thead 2 List: " + t2.list);
+		System.out.println("Thead 3 List: " + t3.list);
 
 	}
 }
