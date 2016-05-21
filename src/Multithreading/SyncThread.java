@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 public class SyncThread extends Thread{
+	
 	static int globalVariable=0;
+	private static final Object countLock = new Object();
 	List <Integer> list;
 	CountDownLatch time;
-	IncrementCounter i;
 	
-	public SyncThread(IncrementCounter a,CountDownLatch latch) {
+	public SyncThread(CountDownLatch latch) {
 		list=new ArrayList<Integer>();	
-		i=a;
 		time=latch;
 	}
 	
@@ -26,7 +26,7 @@ public class SyncThread extends Thread{
 		}
 		while(true){
 		if(globalVariable<100){
-		globalVariable=i.counter(globalVariable);
+		globalVariable+=1;
 		list.add(globalVariable);
 		}
 		}
