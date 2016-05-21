@@ -26,8 +26,13 @@ public class SyncThread extends Thread {
 			if (globalVariable < 100) 
 				increment();
 			else 
-				return;
-			
+				return;			
+			try {
+				sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
