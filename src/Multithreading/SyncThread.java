@@ -25,15 +25,19 @@ public class SyncThread extends Thread {
 			e.printStackTrace();
 		}
 		while (true) {
-			synchronized (countLock) {
+			increment();
+		}
 
-				if (globalVariable < 100) {
-					globalVariable += 1;
-					list.add(globalVariable);
-				}
+	}
+
+	public synchronized void increment() {
+		synchronized (countLock) {
+
+			if (globalVariable < 100) {
+				globalVariable += 1;
+				list.add(globalVariable);
 			}
 
 		}
 	}
-
 }
