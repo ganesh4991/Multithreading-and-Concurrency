@@ -24,25 +24,21 @@ public class SyncThread extends Thread {
 			e.printStackTrace();
 		}
 		while (true) {
-				int temp=increment();
-				if(temp!=-1){
-				list.add(temp);
-				}
-				else
+				if(!increment(list))
 					return;
 			
 		}
 	}
 
-	public static synchronized int increment() {
+	public static synchronized boolean increment(List<Integer> list) {
 		if (globalVariable < 100){
 			globalVariable += 1;
 			System.out.println(globalVariable);
-			int temp=globalVariable;
-			return temp;
+			list.add(globalVariable);
+			return true;
 		}
 		else
-			return -1;
+			return false;
 	}
 
 }
