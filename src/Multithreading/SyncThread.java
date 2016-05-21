@@ -24,8 +24,12 @@ public class SyncThread extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		while(true){
+		if(globalVariable<100){
 		globalVariable=i.counter(globalVariable);
-		list.add(globalVariable);		
+		list.add(globalVariable);
+		}
+		}
 	}
 
 }
