@@ -34,8 +34,7 @@ public class SyncThread extends Thread {
 
 	public synchronized void increment() {
 			globalVariable += 1;
-			System.out.println(globalVariable);
-			list.add(globalVariable);			
+			list.add(globalVariable);
 	}
 
 }
